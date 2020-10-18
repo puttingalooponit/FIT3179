@@ -1,0 +1,13 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "COVID-19 Active Cases (10 Oct 2020)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/puttingalooponit/FIT3179/main/cityOfMelbourne.topojson",
+    "format": {"type": "topojson", "feature": "cityOfMelbourne"}
+  },
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "config": {}
+}
