@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 500,
+  "title": "Pedestrian Count Per Signal in the City Of Melbourne at 08/26/2019 08:00:00 PM",
+  "projection": {"type": "equirectangular"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/puttingalooponit/FIT3179/main/cityOfMelbourne.topojson",
+        "format": {"type": "topojson", "feature": "cityOfMelbourne"}
+      },
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "dimgrey"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/puttingalooponit/FIT3179/main/Pedestrian_Counting_August_2019.csv"
+      },
+      "transform": [{"filter": "datum.Date_Time == '08/26/2019 08:00:00 PM'"}],
+      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "Hourly_Counts",
+          "type": "quantitative",
+          "scale": {"domain": [0, 2114]}
+        }
+      }
+    }
+  ]
+}
